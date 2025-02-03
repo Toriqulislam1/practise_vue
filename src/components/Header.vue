@@ -9,36 +9,82 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <!-- Header / Navigation Bar -->
+    <header class="navbar">
+      <div class="logo">
+        <h1>{{ msg }}</h1>
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </template>
 
 <style scoped>
-h1 {
+/* Header/Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e3b4e;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar .nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li {
+  margin: 0 15px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
   font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
 }
 
-h3 {
-  font-size: 1.2rem;
+.navbar .nav-links a:hover {
+  color: #42b983; /* Green hover effect */
+  text-decoration: underline;
 }
 
-.greetings h1,
-.greetings h3 {
+.main-content {
+  padding: 40px 20px;
   text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+  .navbar .nav-links ul {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .nav-links ul {
+    flex-direction: column;
   }
 }
 </style>
